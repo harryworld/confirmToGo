@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20150602104200) do
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "status"
+    t.integer  "status",     default: 0
     t.boolean  "confirmed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "event_id"
   end
 

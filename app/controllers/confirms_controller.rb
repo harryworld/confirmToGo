@@ -1,9 +1,20 @@
 class ConfirmsController < ApplicationController
-  before_action :set_participant
+  before_action :set_participant, except: [:start_all]
+  before_action :set_event, only: [:start_all]
+
+  def start_all
+    @event.participants.signup.each do |p|
+      p.status = Participant.statuses[:sent]
+      if p.save
+        ConfirmMailer.new_participant_notification(p).deliver
+      end
+    end
+
+    redirect_to event_url(@event)
+  end
 
   def start
     @participant.status = Participant.statuses[:sent]
-    @participant.confirmed = false
 
     @event = @participant.event
 
@@ -35,6 +46,10 @@ class ConfirmsController < ApplicationController
   private
     def set_participant
       @participant = Participant.find(params[:id])
+    end
+
+    def set_event
+      @event = Event.find(params[:event_id])
     end
 
 end
