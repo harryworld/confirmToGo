@@ -1,15 +1,48 @@
-<h1>AngelHack Workshop</h1>
-<h2>3D Printing</h2>
+<div style="text-align: center;">
+  <h1>AngelHack Workshop</h1>
+  <h2><%= @event_name %></h2>
+</div>
 
 <p>
   <%= @greeting %>, <%= @name %>
 </p>
 
 <p>
-  Thanks for signing up the workshop.
+  On behalf of AngelHack, I would like to say thanks for signing up the event <strong><%= @event_name %></strong>.
+</p>
+
+<p>
+  AngelHack is the world’s largest and most diverse global hacker community, helping to drive open innovation of tech products, platforms and brands with extraordinary smarts, scale and speed.
+</p>
+
+<p>
+  For this event, since we are 50% over subscribed, we want to confirm your participation. Late confirmation may result in waiting list.
+</p>
+
+<p>
+  Event: <%= @event_name %><br/>
+  Date: <%= @start_time %><br/>
+  Venue: KB114 at 1/F, Knowles Building, The University of Hong Kong
 </p>
 
 <div>
-  <div><%= link_to 'Yes', confirm_yes_url(@pid) %></div>
-  <div><%= link_to 'No', confirm_no_url(@pid) %></div>
+  <h3>Are you coming?</h3>
+  <div>
+    <p><%= link_to 'Yes, I will attend', confirm_yes_url(@pid) %></p>
+  </div>
+  <div>
+    <p><%= link_to 'No, I cannot make it!', confirm_no_url(@pid) %></p>
+  </div>
 </div>
+
+For more information, please feel free to reply me in email. Looking forward to seeing you at <%= @event_name %>!
+
+Best Regards,<br/>
+Harry Ng<br/>
+AngelHack Ambassador<br/>
+harry@reque.st
+
+<p>
+  Registration:<br/>
+  <%= link_to 'AngelHack 2015 Hong Kong', 'http://angelhack.com/hackathon/hongkong-2015/' %>
+</p>

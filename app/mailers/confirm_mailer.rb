@@ -12,7 +12,9 @@ class ConfirmMailer < ApplicationMailer
     @pid = @participant.id
     @name = @participant.name
     @greeting = "Hi"
+    @event_name = @participant.event.name
+    @start_time = @participant.event.start_time.to_formatted_s(:long)
 
-    mail to: "#{@name} <#{@participant.email}>", subject: 'AngelHack - 3D Printing Workshop'
+    mail to: "#{@name} <#{@participant.email}>", subject: "Confirmation Needed: #{@event_name}"
   end
 end

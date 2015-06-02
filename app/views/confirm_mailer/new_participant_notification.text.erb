@@ -1,9 +1,37 @@
 AngelHack Workshop
-3D Printing
+<%= @event_name %>
 
 <%= @greeting %>, <%= @name %>
 
 Thanks for signing up the workshop.
 
-Yes - <%= confirm_yes_url(@pid) %>
-No - <%= confirm_no_url(@pid) %>
+
+On behalf of AngelHack, I would like to say thanks for signing up the event <%= @event_name %>.
+
+AngelHack is the world’s largest and most diverse global hacker community, helping to drive open innovation of tech products, platforms and brands with extraordinary smarts, scale and speed.
+
+For this event, since we are 50% over subscribed, we want to confirm your participation. Late confirmation may result in waiting list.
+
+Event: <%= @event_name %>
+Date: <%= @start_time %>
+Venue: KB114 at 1/F, Knowles Building, The University of Hong Kong
+
+
+
+Are you coming?
+---------------
+Yes, I will attend - <%= confirm_yes_url(@pid) %>
+No, I cannot make it! - <%= confirm_no_url(@pid) %>
+
+
+
+For more information, please feel free to reply me in email. Looking forward to seeing you at <%= @event_name %>!
+
+Best Regards,
+Harry Ng
+AngelHack Ambassador
+harry@reque.st
+
+
+Registration:
+AngelHack 2015 Hong Kong - http://angelhack.com/hackathon/hongkong-2015/
