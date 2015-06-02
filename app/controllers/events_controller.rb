@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @no_of_confirmed = @event.participants.where(confirmed: true).count
+    @no_of_replied = @event.participants.replied.count
   end
 
   # GET /events/new

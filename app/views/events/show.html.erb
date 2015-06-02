@@ -20,6 +20,11 @@
   <%= @event.end_time %>
 </p>
 
+<p>
+  <strong>Confirmed / Replied:</strong>
+  <%= @no_of_confirmed %> / <%= @no_of_replied %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
 
