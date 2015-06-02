@@ -14,6 +14,8 @@ set :user, 'ubuntu'
 set :deploy_to, '/home/ubuntu/ConfirmToGo'
 set :repository, 'git@github.com:harryworld/confirmToGo.git'
 set :rails_env, 'production'
+
+set :domain, 'app.kingofbond.com'
 set :branch, 'master'
 
 # For system-wide RVM install.
