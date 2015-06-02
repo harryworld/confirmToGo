@@ -47,3 +47,6 @@ group :development, :test do
   gem 'mina'
 end
 
+group :production do
+  gem 'pg'
+end
