@@ -47,7 +47,7 @@
     <% @event.participants.each do |participant| %>
       <tr>
         <td><%= participant.name %></td>
-        <td><%= participant.email %></td>
+        <td>(Hidden)</td>
         <td><%= participant.status %></td>
         <td><%= participant.confirmed %></td>
         <td><%= link_to 'Edit', edit_event_participant_path(@event, participant) %></td>
