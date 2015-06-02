@@ -10,6 +10,6 @@
 </p>
 
 <div>
-  <div><a href="http://localhost:3000/confirm/<%= @pid %>/yes">Yes</a></div>
-  <div><a href="http://localhost:3000/confirm/<%= @pid %>/no">No</a></div>
+  <div><%= link_to 'Yes', confirm_yes_url(@pid) %></div>
+  <div><%= link_to 'No', confirm_no_url(@pid) %></div>
 </div>
