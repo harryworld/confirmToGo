@@ -1,0 +1,17 @@
+# ~/ConfirmToGo/thin.yml
+
+---
+chdir: /home/ubuntu/ConfirmToGo/current
+environment: production
+address: 0.0.0.0
+port: 5000
+timeout: 30
+log: /home/ubuntu/ConfirmToGo/current/log/thin.log
+pid: /home/ubuntu/ConfirmToGo/current/tmp/pids/thin.pid
+socket: /home/ubuntu/ConfirmToGo/current/tmp/pids/thin.sock
+max_conns: 1024
+max_persistent_conns: 100
+require: []
+wait: 30
+servers: 1
+daemonize: true
