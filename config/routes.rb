@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :participants, :only => [:destroy]
 
   post 'confirm/:id' => 'confirms#start', as: :confirm
+  get 'confirm/:id/yes' => 'confirms#yes'
+  get 'confirm/:id/no' => 'confirms#no'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,7 +1,7 @@
 class ConfirmsController < ApplicationController
+  before_action :set_participant
 
   def start
-    @participant = Participant.find(params[:id])
     @participant.status = Participant.statuses[:sent]
     @participant.confirmed = false
 
@@ -17,5 +17,24 @@ class ConfirmsController < ApplicationController
     end
 
   end
+
+  def yes
+    @participant.status = Participant.statuses[:replied]
+    @participant.confirmed = true
+
+    @participant.save
+  end
+
+  def no
+    @participant.status = Participant.statuses[:replied]
+    @participant.confirmed = false
+
+    @participant.save
+  end
+
+  private
+    def set_participant
+      @participant = Participant.find(params[:id])
+    end
 
 end

@@ -9,6 +9,8 @@ class ConfirmMailer < ApplicationMailer
   #
   def new_participant_notification(participant)
     @participant = participant
+    @pid = @participant.id
+    @name = @participant.name
     @greeting = "Hi"
 
     mail to: @participant.email, subject: 'AngelHack - 3D Printing Workshop'
