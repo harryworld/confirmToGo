@@ -45,6 +45,7 @@
         <td><%= participant.confirmed %></td>
         <td><%= link_to 'Edit', edit_event_participant_path(@event, participant) %></td>
         <td><%= link_to 'Destroy', participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Send Email', confirm_path(participant), method: :post %></td>
       </tr>
     <% end %>
   </tbody>

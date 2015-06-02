@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :participants, :only => [:destroy]
+
+  post 'confirm/:id' => 'confirms#start', as: :confirm
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
