@@ -3,6 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'mina/delayed_job'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -17,6 +18,10 @@ set :rails_env, 'production'
 
 set :domain, 'app.kingofbond.com'
 set :branch, 'master'
+
+set_default :delayed_job, lambda { "bin/delayed_job" }
+set_default :delayed_job_pid_dir, lambda { "#{deploy_to}/#{shared_path}/pids" }
+set_default :delayed_job_processes, 1
 
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'
@@ -55,6 +60,8 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
+
+  invoke :'delayed_job:setup'
 end
 
 desc "Deploys the current version to the server."
@@ -74,6 +81,7 @@ task :deploy => :environment do
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
       queue "cd #{deploy_to}/#{current_path}; bundle exec thin restart -C #{deploy_to}/#{current_path}/thin.yml"
       queue 'cd #{deploy_to}/#{current_path}'
+      invoke :'delayed_job:restart'
     end
   end
 end

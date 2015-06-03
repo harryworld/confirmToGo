@@ -6,7 +6,7 @@ class ConfirmsController < ApplicationController
     @event.participants.signup.each do |p|
       p.status = Participant.statuses[:sent]
       if p.save
-        ConfirmMailer.new_participant_notification(p).deliver
+        SendEmailJob.set(wait: 2.seconds).perform_later(@participant)
       end
     end
 
@@ -20,7 +20,7 @@ class ConfirmsController < ApplicationController
 
     respond_to do |format|
       if @participant.save
-        ConfirmMailer.new_participant_notification(@participant).deliver
+        SendEmailJob.set(wait: 2.seconds).perform_later(@participant)
         format.html { redirect_to event_url(@event), notice: 'Participant was notified.' }
       else
         format.html { redirect_to event_url(@event), notice: 'Error sending email.' }
