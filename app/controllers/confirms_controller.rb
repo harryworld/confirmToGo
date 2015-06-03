@@ -6,7 +6,7 @@ class ConfirmsController < ApplicationController
     @event.participants.signup.each do |p|
       p.status = Participant.statuses[:sent]
       if p.save
-        SendEmailJob.set(wait: 2.seconds).perform_later(@participant)
+        SendEmailJob.set(wait: 2.seconds).perform_later(p)
       end
     end
 
