@@ -35,6 +35,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Email</th>
       <th>Status</th>
@@ -44,8 +45,9 @@
   </thead>
 
   <tbody>
-    <% @event.participants.each do |participant| %>
+    <% @event.participants.order(id: :asc).each do |participant| %>
       <tr>
+        <td><%= participant.id %></td>
         <td><%= participant.name %></td>
         <td>(Hidden)</td>
         <td><%= participant.status %></td>
