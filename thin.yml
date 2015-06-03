@@ -7,8 +7,8 @@ address: 0.0.0.0
 port: 5000
 timeout: 30
 log: /home/ubuntu/ConfirmToGo/current/log/thin.log
-pid: /home/ubuntu/ConfirmToGo/current/shared/pids/thin.pid
-socket: /home/ubuntu/ConfirmToGo/current/shared/pids/thin.sock
+pid: /home/ubuntu/ConfirmToGo/shared/pids/thin.pid
+socket: /home/ubuntu/ConfirmToGo/shared/pids/thin.sock
 max_conns: 1024
 max_persistent_conns: 100
 require: []
