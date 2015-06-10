@@ -1,6 +1,6 @@
 class ConfirmsController < ApplicationController
-  before_action :set_participant, except: [:start_all]
-  before_action :set_event, only: [:start_all]
+  before_action :set_participant, except: [:start_all, :start_2nd]
+  before_action :set_event, only: [:start_all, :start_2nd]
 
   def start_all
     @event.participants.signup.each do |p|
@@ -8,6 +8,14 @@ class ConfirmsController < ApplicationController
       if p.save
         SendEmailJob.set(wait: 2.seconds).perform_later(p)
       end
+    end
+
+    redirect_to event_url(@event)
+  end
+
+  def start_2nd
+    @event.participants.replied.where(confirmed: true).each do |p|
+      SendEmailAgainJob.set(wait: 2.seconds).perform_later(p)
     end
 
     redirect_to event_url(@event)

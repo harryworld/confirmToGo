@@ -17,4 +17,13 @@ class ConfirmMailer < ApplicationMailer
 
     mail to: "#{@name} <#{@participant.email}>", subject: "Confirmation Needed: #{@event_name}"
   end
+
+  def remind_participant_notification(participant)
+    @participant = participant
+    @name = @participant.name
+    @event_name = @participant.event.name
+    @start_time = @participant.event.start_time.to_formatted_s(:long)
+
+    mail to: "#{@name} <#{@participant.email}>", subject: "Remind to bring your Mac: #{@event_name}"
+  end
 end

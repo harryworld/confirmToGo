@@ -1,0 +1,38 @@
+<div style="text-align: center;">
+  <h2><%= @event_name %></h2>
+</div>
+
+<p>
+  Hi <%= @name %>,
+</p>
+
+<p>
+  Thanks for confirming the event <strong><%= @event_name %></strong>.
+</p>
+
+<p>
+  AngelHack is the world’s largest and most diverse global hacker community, helping to drive open innovation of tech products, platforms and brands with extraordinary smarts, scale and speed.
+</p>
+
+<p>
+  For this event, please be reminded to bring with you a <strong>MacBook</strong>. We will need Xcode and corresponding tools to build the mobile app. You can share the MacBook with your buddy as well.
+</p>
+
+<p>
+  Event: <%= @event_name %><br/>
+  Date: <%= @start_time %><br/>
+  Venue: KB114 at 1/F, Knowles Building, The University of Hong Kong
+</p>
+
+
+For more information, please feel free to reply me in email. Looking forward to seeing you at <%= @event_name %>!
+
+Best Regards,<br/>
+Harry Ng<br/>
+AngelHack Ambassador<br/>
+<a href="mailto:harry@reque.st">harry@reque.st</a>
+
+<p>
+  Registration:<br/>
+  <%= link_to 'AngelHack 2015 Hong Kong', 'http://angelhack.com/hackathon/hongkong-2015/' %>
+</p>
