@@ -21,8 +21,8 @@
 </p>
 
 <p>
-  <strong>Confirmed / Replied:</strong>
-  <%= @no_of_confirmed %> / <%= @no_of_replied %>
+  <strong>Confirmed / Replied / Total:</strong>
+  <%= @no_of_confirmed %> / <%= @no_of_replied %> / <%= @event.participants.count %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
@@ -30,8 +30,9 @@
 
 <h1>Listing Participants</h1>
 
-<%= link_to 'Send All', confirm_all_path(@event), method: :post %>
-<%= link_to 'Send 2nd', confirm_2nd_path(@event), method: :post %>
+<%= link_to 'Send All', confirm_all_path(@event), method: :post, class: 'btn btn-default' %>
+<%= link_to 'Send 2nd', confirm_2nd_path(@event), method: :post, class: 'btn btn-default' %>
+<%= link_to 'Send Coupon Code', confirm_coupon_path(@event), method: :post, class: 'btn btn-default' %>
 
 <table>
   <thead>

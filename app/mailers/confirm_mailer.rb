@@ -26,4 +26,13 @@ class ConfirmMailer < ApplicationMailer
 
     mail to: "#{@name} <#{@participant.email}>", subject: "Remind to bring your Mac: #{@event_name}"
   end
+
+  def send_coupon_notification(participant)
+    @participant = participant
+    @name = @participant.name
+    @event_name = @participant.event.name
+    @start_time = @participant.event.start_time.to_formatted_s(:long)
+
+    mail to: "#{@name} <#{@participant.email}>", subject: "AngelHack FREE code. Thanks in joining #{@event_name}"
+  end
 end

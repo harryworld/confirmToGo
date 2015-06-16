@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   post 'confirm_all/:event_id' => 'confirms#start_all', as: :confirm_all
   post 'confirm_2nd/:event_id' => 'confirms#start_2nd', as: :confirm_2nd
+  post 'confirm_coupon/:event_id' => 'confirms#start_coupon', as: :confirm_coupon
   post 'confirm/:id' => 'confirms#start', as: :confirm
   get 'confirm/:id/yes' => 'confirms#yes', as: :confirm_yes
   get 'confirm/:id/no' => 'confirms#no', as: :confirm_no
