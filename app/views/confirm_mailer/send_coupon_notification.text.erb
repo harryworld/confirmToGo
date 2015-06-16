@@ -7,6 +7,17 @@ Thanks for signing up the workshop.
 
 On behalf of AngelHack, I would like to say thanks for signing up and joining the event <%= @event_name %>.
 
+<% if @participant.event.id == 1 %>
+  ** As continuous support, Printact has confirmed to provide 3D Printing Service during AngelHack **
+<% end %>
+<% if @participant.event.id == 2 %>
+
+  ** The event host Plotable is now including the manual here for you. Please download it from their website.
+
+  ** Download from DataMolder - http://datamolder.com/assets/resources/user_guide.pdf
+
+<% end %>
+
 AngelHack is the world’s largest and most diverse global hacker community, helping to drive open innovation of tech products, platforms and brands with extraordinary smarts, scale and speed.
 
 The next AngelHack will be hosted this weekend in HKU. You are invited to join this Global Event with 50,000 people around the World.
