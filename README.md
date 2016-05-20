@@ -6,3 +6,8 @@ Simple Rails application to create events and send invitation to the participant
 2. Update mailgun appId
 3. Set mina configuration
 4. `mina deploy`
+
+## Feature Requests
+
+- [ ] Add User Login
+- [ ] Download Email List
